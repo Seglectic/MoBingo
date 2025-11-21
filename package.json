@@ -1,0 +1,15 @@
+{
+  "name": "mobingo",
+  "version": "1.0.0",
+  "description": "Simple mobile-friendly bingo webapp with CSV upload and sharable links.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "nanoid": "^4.0.2"
+  }
+}

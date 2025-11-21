@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoBingo</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">MoBingo</p>
+          <h1>Bingo that fits in your pocket.</h1>
+          <p class="lede">
+            Upload a CSV, share the link, and tap squares on your phone as the game unfolds.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section id="upload-section" class="card">
+          <div class="card-header">
+            <div>
+              <p class="eyebrow">Create</p>
+              <h2>Bring your CSV</h2>
+              <p class="hint">Each value becomes a bingo tile.</p>
+            </div>
+          </div>
+          <form id="upload-form" class="stack">
+            <label class="field">
+              <span>Board title</span>
+              <input type="text" name="title" placeholder="e.g. Team Offsite Bingo" maxlength="100" />
+            </label>
+            <label class="field file">
+              <input type="file" id="csv-file" name="csv" accept=".csv,text/csv" required />
+              <span id="file-label">Choose a CSV file</span>
+            </label>
+            <button type="submit" class="cta">Upload &amp; get link</button>
+            <p class="hint small">
+              Your CSV is stored on this server so others can join via the share link.
+            </p>
+          </form>
+          <div id="share-result" class="share hidden">
+            <p class="eyebrow">Link ready</p>
+            <div class="share-row">
+              <input id="share-url" type="text" readonly />
+              <button id="copy-btn" class="ghost">Copy</button>
+            </div>
+            <p class="hint small">Send this to your players. They can mark tiles on their phones.</p>
+          </div>
+        </section>
+
+        <section id="board-section" class="card hidden">
+          <div class="card-header">
+            <div>
+              <p class="eyebrow">Game</p>
+              <h2 id="board-title">Bingo Board</h2>
+              <p class="hint" id="board-status">Tap tiles to mark them.</p>
+            </div>
+            <div class="pill" id="cell-count"></div>
+          </div>
+          <div id="board-grid" class="grid"></div>
+          <div class="actions">
+            <button id="share-btn" class="cta ghost">Get share link</button>
+            <button id="reset-btn" class="ghost">Reset marks</button>
+          </div>
+          <div id="board-share" class="share hidden">
+            <p class="eyebrow">Share</p>
+            <div class="share-row">
+              <input id="board-share-url" type="text" readonly />
+              <button id="board-copy-btn" class="ghost">Copy</button>
+            </div>
+          </div>
+          <!-- <p class="hint small">Marks are stored locally on this device.</p> -->
+        </section>
+      </main>
+    </div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
